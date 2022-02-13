@@ -9,11 +9,11 @@ pipeline {
       }
       stage('Docker Build') {
          steps {
-            sh label: '', script: 'docker images -a'
+            sh label: '', script: 'podman images -a'
             sh label: '', script: '''cd azure-vote/
-               docker images -a
-               docker build -t jenkins-pipeline .
-               docker images -a
+               podman images -a
+               podman build -t jenkins-pipeline .
+               podman images -a
                cd ..'''
          }
       }
